@@ -16,6 +16,14 @@
         <div class="btns">
             <button class="generate" onclick="createPassword()"><img src="images/generate.png"> generate a password</button>
             <button class="remove" id="remove" onclick="remove()" >remove</button>
+            <button class="submit" id="submit">submit</button>
+        </div>
+        <div class="rules">
+            <p id="chars">password must contain 7 characters</p>
+            <p id="upper">password must contain uppercase</p>
+            <p id="lower">password must contain lowercase</p>
+            <p id="num">password must contain number</p>
+            <p id="special">password must contain special character</p>
         </div>
     </div>
     <script>
@@ -38,14 +46,81 @@
                 password +=allChars[Math.floor(Math.random()*allChars.length)]
             }
             passwordBox.value=password
+
+
+
+            upper.style.color="green"
+            lower.style.color="green"
+            num.style.color="green"
+            special.style.color="green"
+            chars.style.color="green"
         }
         function copyPassword(){
             passwordBox.select();
             document.execCommand('copy')
         }
+        
+        //the input is called passwordBox
+        let submit=document.getElementById("submit")
+        let chars=document.getElementById("chars")
+        let upper=document.getElementById("upper")
+        let lower=document.getElementById("lower")
+        let num=document.getElementById("num")
+        let special=document.getElementById("special")
         function remove(){
             let password1=document.getElementById("password")
             password1.value=""
+            upper.style.color="red"
+            lower.style.color="red"
+            num.style.color="red"
+            special.style.color="red"
+            chars.style.color="red"
+        }
+        submit.onclick=function(){
+            let chars=document.getElementById("chars")
+            let upper=document.getElementById("upper")
+            let lower=document.getElementById("lower")
+            let num=document.getElementById("num")
+            let special=document.getElementById("special")
+            //**********************************************
+            let upper1=passwordBox.value.match(/[A-Z]/)
+            let lower1=passwordBox.value.match(/[a-z]/)
+            let num1=passwordBox.value.match(/[0-9]/)
+            let special1=passwordBox.value.match(/[\!\@\#\$\%\^\&\*\(\)\>\+\{\}]/)
+            if (passwordBox.value==''){
+                alert('please,Write someThing...')
+            }
+            else if(passwordBox.value.length<7){
+                chars.style.color='red'
+            }
+            else if(passwordBox.value.length>=7){
+                chars.style.color='green'
+            }
+            if(upper1==null){
+                upper.style.color='red'
+            }
+            else if(upper1!=null){
+                upper.style.color='green'
+            }
+            if(lower1==null){
+                lower.style.color='red'
+            }
+            else if(lower1!=null){
+                lower.style.color='green'
+            }
+            if(num1==null){
+                num.style.color='red'
+            }
+            else if(num1!=null){
+                num.style.color='green'
+            }
+            if(special1==null){
+                special.style.color='red'
+            }
+            else if(special1!=null){
+                special.style.color='green'
+            }
+
         }
     </script>
 </body>

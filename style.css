@@ -4,13 +4,13 @@ body{
     
 }
 .container{
-    margin:12%;
+    margin-left:12%;
+    margin-top: 50px;
     width: 90%;
     max-width: 700px;
 }
 .display{
     width: 100%;
-    margin-top: 50px;
     margin-bottom: 30px;
     background: #fff;
     color: #333;
@@ -66,4 +66,28 @@ body{
 }
 .generate{
     background: #000 ;
+}
+.submit{
+    margin-left: 100px;
+    
+    background: rgb(22, 103, 22);
+    
+}
+
+
+.rules{
+    box-shadow: 0 0 10px 2px black;
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.365);
+    border-radius: 5px;
+    font-size: 24px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+.rules p{
+    
+    color:red;
+    
 }
